@@ -9,23 +9,21 @@ namespace Spryker\Zed\ProductListGuiExtension\Dependency\Plugin;
 
 use Symfony\Component\Form\FormBuilderInterface;
 
-interface ProductListCreateFormExpanderPluginInterface
+interface ProductListOwnerTypeFormExpanderPluginInterface
 {
-    public const OPTION_DISABLE_GENERAL = 'OPTION_DISABLE_GENERAL';
-
     /**
      * Specification:
-     * - Get name, that used in form building.
+     * - Providers owner type.
      *
      * @api
      *
      * @return string
      */
-    public function getName(): string;
+    public function getOwnerType(): string;
 
     /**
      * Specification:
-     * - Expands \Spryker\Zed\ProductListGui\Communication\Form\ProductListForm with new form.
+     * - Adds form parts to the main form builder
      *
      * @api
      *
@@ -35,16 +33,4 @@ interface ProductListCreateFormExpanderPluginInterface
      * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void;
-
-    /**
-     * Specification:
-     * - Update form options, if needed.
-     *
-     * @api
-     *
-     * @param array $options
-     *
-     * @return array
-     */
-    public function getOptions(array $options): array;
 }
